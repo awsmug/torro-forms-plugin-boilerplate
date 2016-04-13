@@ -20,3 +20,26 @@ msgstr ""
 "x-textdomain-support: yes\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
+#: core/elements/iframe.php:16
+msgid "IFrame"
+msgstr ""
+
+#: core/elements/iframe.php:17
+msgid "Adds an iframe to the form."
+msgstr ""
+
+#: core/elements/iframe.php:36
+msgid "Label "
+msgstr ""
+
+#: core/elements/iframe.php:50
+msgid "URL"
+msgstr ""
+
+#: core/elements/iframe.php:52
+msgid "The URL that the iframe should display."
+msgstr ""
+
+#: torro-forms-plugin-boilerplate.php:38
+msgid "Torro Forms is not activated. Please activate it in order to use the extension %s."
+msgstr ""
