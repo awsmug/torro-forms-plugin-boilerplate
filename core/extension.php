@@ -46,7 +46,7 @@ class Torro_Forms_Plugin_Boilerplate extends Torro_Extension {
 
 	protected function includes() {
 		require_once $this->get_path( 'core/elements/iframe.php' );
-		//require_once $this->get_path( 'components/actions/logger.php' );
+		require_once $this->get_path( 'components/actions/pluginsearcher.php' );
 	}
 
 	public function frontend_scripts() {
