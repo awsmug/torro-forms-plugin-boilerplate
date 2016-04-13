@@ -1,7 +1,7 @@
 {
   "name": "torro-forms-plugin-boilerplate",
   "version": "1.0.0",
-  "description": "Torro Forms Plugin Boilerplate",
+  "description": "Plugin Boilerplate for the Easy & Extendable WordPress Formbuilder",
   "keywords": [
     "forms",
     "form builder",
@@ -39,6 +39,5 @@
       "homepage": "http://leaves-and-love.net"
     }
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -15,7 +15,7 @@ var config = {
 	tags: pkg.keywords.join( ', ' ),
 	contributors: [ 'mahype', 'flixos90', 'awesome-ug' ].join( ', ' ),
 	minRequired: '4.1.1',
-	testedUpTo: '4.4.2',
+	testedUpTo: '4.5',
 	translateURI: pkg.homepage
 };
 

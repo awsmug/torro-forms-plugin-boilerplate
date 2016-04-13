@@ -1,7 +1,7 @@
 {
   "name": "torro-forms-plugin-boilerplate",
   "version": "1.0.0",
-  "description": "Torro Forms plugin",
+  "description": "Plugin Boilerplate for the Easy & Extendable WordPress Formbuilder",
   "keywords": [
     "forms",
     "form builder",

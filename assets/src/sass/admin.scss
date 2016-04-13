@@ -1,0 +1,21 @@
+.iframe-wrap {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+
+	> iframe {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: 0;
+	}
+}
+
+.iframe-container {
+	padding: 20px;
+	border-color: #333333;
+	background-color: #aaaaaa;
+}

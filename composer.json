@@ -1,6 +1,6 @@
 {
   "name": "awsmug/torro-forms-plugin-boilerplate",
-  "description": "Torro Forms Plugin Boilerplate",
+  "description": "Plugin Boilerplate for the Easy & Extendable WordPress Formbuilder",
   "version": "1.0.0",
   "license": "GPL-3.0",
   "type": "wordpress-plugin",
@@ -46,24 +46,6 @@
   "support": {
     "issues": "https://github.com/awsmug/torro-forms-plugin-boilerplate/issues"
   },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "awsmug/torro-forms",
-        "version": "1.0.0",
-        "source": {
-          "url": "git://github.com/awsmug/torro-forms.git",
-          "type": "git",
-          "reference": "master"
-        },
-        "dist": {
-          "url": "https://github.com/awsmug/torro-forms/archive/master.zip",
-          "type": "zip"
-        }
-      }
-    }
-  ],
   "config": {
     "preferred-install": "dist"
   },
