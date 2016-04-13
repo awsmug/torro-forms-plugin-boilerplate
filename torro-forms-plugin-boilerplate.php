@@ -46,12 +46,3 @@ class Torro_Forms_Plugin_Boilerplate_Init {
 }
 
 add_action( 'plugins_loaded', array( 'Torro_Forms_Plugin_Boilerplate_Init', 'init' ) );
-
-/**
- * replace:
- *
- * torro-forms-plugin-boilerplate
- * torro_forms_plugin_boilerplate
- * Torro_Forms_Plugin_Boilerplate
- * Torro Forms Plugin Boilerplate
- */
