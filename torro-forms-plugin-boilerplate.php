@@ -25,7 +25,7 @@ class Torro_Forms_Plugin_Boilerplate_Init {
 			return;
 		}
 
-		add_action( 'torro_loaded', array( __CLASS__, 'load_extension' ) );
+		torro_loaded( array( __CLASS__, 'load_extension' ) );
 	}
 
 	public static function load_extension() {
