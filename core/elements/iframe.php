@@ -56,4 +56,4 @@ final class Torro_Forms_Plugin_Boilerplate_Element_IFrame extends Torro_Form_Ele
 	}
 }
 
-torro()->elements()->register( 'Torro_Forms_Plugin_Boilerplate_Element_IFrame' );
+torro()->element_types()->register( 'Torro_Forms_Plugin_Boilerplate_Element_IFrame' );
