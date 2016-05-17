@@ -20,12 +20,12 @@ class Torro_Forms_Plugin_Boilerplate_Init {
 	public static function init() {
 		self::load_textdomain();
 
-		if ( ! class_exists( 'Torro_Init' ) ) {
+		if ( ! function_exists( 'torro_load' ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'torro_not_active' ) );
 			return;
 		}
 
-		torro_loaded( array( __CLASS__, 'load_extension' ) );
+		torro_load( array( __CLASS__, 'load_extension' ) );
 	}
 
 	public static function load_extension() {
