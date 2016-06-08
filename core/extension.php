@@ -47,6 +47,8 @@ class Torro_Forms_Plugin_Boilerplate extends Torro_Extension {
 	}
 
 	public function register_template_location( $locations ) {
+		// remove this function and the above filter hook if your extension doesn't need templates
+
 		$locations[70] = $this->get_path( 'templates/' );
 
 		return $locations;
