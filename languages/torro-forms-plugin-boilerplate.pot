@@ -20,24 +20,60 @@ msgstr ""
 "x-textdomain-support: yes\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: core/elements/iframe.php:16
+#: components/actions/pluginsearcher.php:44
+msgid "WP.org Plugin Search Redirection"
+msgstr ""
+
+#: components/actions/pluginsearcher.php:87
+msgid "Field to search for"
+msgstr ""
+
+#: components/actions/pluginsearcher.php:91
+msgid "Redirect the user to wp.org to search for a plugin named after the field content."
+msgstr ""
+
+#: core/element-types/date.php:14
+msgid "Date"
+msgstr ""
+
+#: core/element-types/date.php:15
+msgid "Add an element to select a date"
+msgstr ""
+
+#: core/element-types/date.php:53
+msgid "The input is missing at least the year, month or day."
+msgstr ""
+
+#: core/element-types/iframe.php:14
 msgid "IFrame"
 msgstr ""
 
-#: core/elements/iframe.php:17
+#: core/element-types/iframe.php:15
 msgid "Adds an iframe to the form."
 msgstr ""
 
-#: core/elements/iframe.php:36
+#: core/element-types/iframe.php:32
 msgid "Label "
 msgstr ""
 
-#: core/elements/iframe.php:50
+#: core/element-types/iframe.php:46
 msgid "URL"
 msgstr ""
 
-#: core/elements/iframe.php:52
+#: core/element-types/iframe.php:48
 msgid "The URL that the iframe should display."
+msgstr ""
+
+#: templates/element-type-date.php:11
+msgid "Year"
+msgstr ""
+
+#: templates/element-type-date.php:18
+msgid "Month"
+msgstr ""
+
+#: templates/element-type-date.php:25
+msgid "Day"
 msgstr ""
 
 #: torro-forms-plugin-boilerplate.php:38
