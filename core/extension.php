@@ -42,9 +42,18 @@ class Torro_Forms_Plugin_Boilerplate extends Torro_Extension {
 				'type'					=> 'text',
 			),
 		);
+
+		add_filter( 'torro_template_locations', array( $this, 'register_template_location' ) );
+	}
+
+	public function register_template_location( $locations ) {
+		$locations[70] = $this->get_path( 'templates/' );
+
+		return $locations;
 	}
 
 	protected function includes() {
+		require_once $this->get_path( 'core/elements/date.php' );
 		require_once $this->get_path( 'core/elements/iframe.php' );
 		require_once $this->get_path( 'components/actions/pluginsearcher.php' );
 	}

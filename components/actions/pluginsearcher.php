@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Torro_Forms_Plugin_Boilerplate_Pluginsearcher extends Torro_Action {
+class Torro_Forms_Plugin_Boilerplate_Pluginsearcher extends Torro_Form_Action {
 	/**
 	 * Instance
 	 *
@@ -77,11 +77,7 @@ class Torro_Forms_Plugin_Boilerplate_Pluginsearcher extends Torro_Action {
 		exit;
 	}
 
-	public function option_content() {
-		global $post;
-
-		$form_id = $post->ID;
-
+	public function option_content( $form_id ) {
 		$field_to_search = get_post_meta( $form_id, 'field_to_search_plugin', true );
 
 		$html = '<div id="form-pluginsearcher">';
@@ -102,11 +98,9 @@ class Torro_Forms_Plugin_Boilerplate_Pluginsearcher extends Torro_Action {
 		return $html;
 	}
 
-	public function save_option_content() {
-		global $post;
-
+	public function save( $form_id ) {
 		$field_to_search = $_POST['field_to_search_plugin'];
-		update_post_meta( $post->ID, 'field_to_search_plugin', $field_to_search );
+		update_post_meta( $form_id, 'field_to_search_plugin', $field_to_search );
 	}
 }
 
