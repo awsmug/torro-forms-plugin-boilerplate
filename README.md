@@ -1,4 +1,5 @@
 [![Build Status](https://api.travis-ci.org/awsmug/torro-forms-plugin-boilerplate.png?branch=master)](https://travis-ci.org/awsmug/torro-forms-plugin-boilerplate)
+[![Code Climate](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate)
 [![Test Coverage](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate/badges/coverage.svg)](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate/coverage)
 [![Latest Stable Version](https://poser.pugx.org/awsmug/torro-forms-plugin-boilerplate/version)](https://packagist.org/packages/awsmug/torro-forms-plugin-boilerplate)
 [![License](https://poser.pugx.org/awsmug/torro-forms-plugin-boilerplate/license)](https://packagist.org/packages/awsmug/torro-forms-plugin-boilerplate)
