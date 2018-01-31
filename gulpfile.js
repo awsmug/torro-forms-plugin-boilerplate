@@ -238,6 +238,7 @@ gulp.task( 'init-replace', done => {
 		'./phpcs.xml',
 		'./phpmd.xml',
 		'./phpunit.xml',
+		'./tests/phpunit/multisite.xml',
 		'./readme.txt',
 	];
 
