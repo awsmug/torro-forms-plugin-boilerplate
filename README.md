@@ -12,8 +12,9 @@ This is a plugin boilerplate for a Torro Forms extension. It is highly encourage
 To create your own plugin, download this repository. For the next steps, let's assume your plugin should be called `Torro Super Extension`.
 
 1. Rename the directory to `torro-super-extension`.
+2. Rename the plugin main file to `torro-super-extension.php`.
 2. Open `gulpfile.js` and scroll to the bottom.
-3. Replace every value in the `replacements` object with your new plugin name or plugin author data in the appropriate format. For example, replace `my-new-plugin-name` with `torro-super-extension`, `MY_NEW_PLUGIN_NAME` with `TORRO_SUPER_EXTENSION` and so on. Replace the plugin URL, author name, author email and author URL with your respective data.
+3. Replace every value in the `replacements` object with your new plugin name or plugin author data in the appropriate format. For example, replace `my-new-plugin-name` with `torro-super-extension`, `MY_NEW_PLUGIN_NAME` with `TORRO_SUPER_EXTENSION` and so on. Replace the plugin namespace vendor, plugin URL, author name, author email and author URL with your respective data.
 4. Save the changes.
 5. Run `npm install` in the console.
 6. Run `gulp init-replace` in the console.
