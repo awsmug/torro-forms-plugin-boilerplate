@@ -11,10 +11,10 @@ $GLOBALS['wp_tests_options'] = array(
 	),
 );
 
-require '../../../../torro-forms/tests/phpunit/includes/bootstrap.php';
+require dirname( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) ) . '/torro-forms/tests/phpunit/includes/bootstrap.php';
 
 function _manually_load_extension() {
-	require '../../../torro-forms-plugin-boilerplate.php';
+	require dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/torro-forms-plugin-boilerplate.php';
 }
 
 if ( defined( 'TORRO_MANUAL_LOAD' ) && TORRO_MANUAL_LOAD ) {
