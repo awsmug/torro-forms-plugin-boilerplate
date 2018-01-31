@@ -2,12 +2,12 @@
 /**
  * Plugin initialization file
  *
- * @package TorroForms
+ * @package TorroFormsPluginBoilerplate
  * @since 1.0.0
  *
  * @wordpress-plugin
  * Plugin Name: Torro Forms Plugin Boilerplate
- * Plugin URI:  https://torro-forms.com
+ * Plugin URI:  https://torro-forms-plugin-boilerplate.com
  * Description: Plugin Boilerplate for Torro Forms.
  * Version:     1.0.0
  * Author:      Awesome UG

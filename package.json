@@ -28,7 +28,7 @@
       "url": "https://leaves-and-love.net"
     }
   ],
-  "homepage": "https://torro-forms.com",
+  "homepage": "https://plugin-website.com",
   "repository": {
     "type": "git",
     "url": "git://github.com/awsmug/torro-forms-plugin-boilerplate.git"
@@ -52,6 +52,8 @@
     "gulp-replace": "~0.5.4",
     "gulp-sass": "~3.1.0",
     "gulp-uglify": "~2.0.1",
+    "gulp-sort": "~2.0.0",
+    "gulp-wp-pot": "~2.0.6",
     "jshint": "~2.9.4"
   }
 }

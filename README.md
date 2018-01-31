@@ -9,15 +9,32 @@ This is a plugin boilerplate for a Torro Forms extension. It is highly encourage
 
 ## Getting Started
 
-Before you start, you should run some search-and-replace processes to replace the boilerplate plugin name with your actual extension name.
+To create your own plugin, download this repository. For the next steps, let's assume your plugin should be called `Torro Super Extension`.
 
-An example: Let's say your plugin is called `Mega Incredible Form Extension`. In this case you would need to replace:
+1. Rename the directory to `torro-super-extension`.
+2. Open `gulpfile.js` and scroll to the bottom.
+3. Replace every value in the `replacements` object with your new plugin name or plugin author data in the appropriate format. For example, replace `my-new-plugin-name` with `torro-super-extension`, `MY_NEW_PLUGIN_NAME` with `TORRO_SUPER_EXTENSION` and so on. Replace the plugin URL, author name, author email and author URL with your respective data.
+4. Save the changes.
+5. Run `npm install` in the console.
+6. Run `gulp init-replace` in the console.
+7. Open `gulpfile.js` again and remove the entire bottom section that starts with `INITIAL SETUP TASK`, save the file afterwards.
+8. Check the `composer.json` and `package.json` files. You might wanna update some details to your preferences.
+9. Check the top of `gulpfile.js`, containing the `config` object. You might wanna update some details to your preferences.
+10. Run `gulp build` once to compile everything.
 
-* `Torro Forms Plugin Boilerplate` to `Mega Incredible Form Extension` (plugin name)
-* `Torro_Forms_Plugin_Boilerplate` to `Mega_Incredible_Form_Extension` (PHP class names)
-* `torro-forms-plugin-boilerplate` to `mega-incredible-form-extension` (textdomain / filenames / directory)
-* `torro_forms_plugin_boilerplate` to `mega_incredible_form_extension` (plugin identifier)
+Now you're good to go! One more thing: If you want to publish the plugin on wordpress.org, it's recommended to remove the `/languages` directory, plus set the `config.domainPath` to `false` and remove the `pot` task in `gulpfile.js`. Then, remove the now unnecessary arguments from the `Extension::load_textdomain()` method accordingly.
 
-What you should do then is adjust the `core/extension.php` file to your needs. This is where your extension will get bootstrapped (use the `includes()` method to include other files/start up some tasks). If you need to enqueue assets, you can do so using the corresponding methods (examples are in the boilerplate).
+### Actual Development
 
-Everything else in the boilerplate is optional, the element and action contained are just samples (which are not very useful btw). Just bear in mind, you should stick to the directory structure used in the boilerplate - it is oriented after the Torro Forms base plugin.
+Adjust the `src/extension.php` file to your needs. This is where your extension will get bootstrapped. You can instantiate the services your extension needs here, setup hooks (which will then be automatically invoked by the Torro Forms main plugin) and more.
+
+All further classes and assets in the boilerplate is optional and simply sample code. Just bear in mind, you should stick to the directory structure used in the boilerplate - it is oriented after the Torro Forms base plugin.
+
+## Common Gulp Tasks
+
+* `gulp sass`: Compiles CSS/Sass
+* `gulp js`: Compiles JavaScript
+* `gulp pot`: Refreshes POT file
+* `gulp header-replace`: Replaces the plugin header with latest data
+* `gulp readme-replace`: Replaces the header and description in the readme with latest data
+* `gulp build`: Runs all of the above tasks
