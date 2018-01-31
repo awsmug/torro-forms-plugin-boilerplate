@@ -236,6 +236,8 @@ gulp.task( 'init-replace', done => {
 		'./gulpfile.js',
 		'./package.json',
 		'./phpcs.xml',
+		'./phpmd.xml',
+		'./phpunit.xml',
 		'./readme.txt',
 	];
 
