@@ -1,20 +1,24 @@
 <?php
-/*
-Plugin Name: Torro Forms Plugin Boilerplate
-Plugin URI:  http://torro-forms.com
-Description: Plugin Boilerplate for the Easy & Extendable WordPress Formbuilder
-Version:     1.0.0
-Author:      Awesome UG
-Author URI:  http://www.awesome.ug
-License:     GNU General Public License v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: torro-forms-plugin-boilerplate
-Domain Path: /languages/
-*/
+/**
+ * Plugin initialization file
+ *
+ * @package TorroForms
+ * @since 1.0.0
+ *
+ * @wordpress-plugin
+ * Plugin Name: Torro Forms Plugin Boilerplate
+ * Plugin URI:  https://torro-forms.com
+ * Description: Plugin Boilerplate for Torro Forms.
+ * Version:     1.0.0
+ * Author:      Awesome UG
+ * Author URI:  http://www.awesome.ug
+ * License:     GNU General Public License v2 (or later)
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: torro-forms-plugin-boilerplate
+ * Tags:        extension, torro forms, forms, form builder, api
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 class Torro_Forms_Plugin_Boilerplate_Init {
 	public static function init() {

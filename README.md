@@ -1,3 +1,8 @@
+[![Build Status](https://api.travis-ci.org/awsmug/torro-forms-plugin-boilerplate.png?branch=master)](https://travis-ci.org/awsmug/torro-forms-plugin-boilerplate)
+[![Test Coverage](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate/badges/coverage.svg)](https://codeclimate.com/github/awsmug/torro-forms-plugin-boilerplate/coverage)
+[![Latest Stable Version](https://poser.pugx.org/awsmug/torro-forms-plugin-boilerplate/version)](https://packagist.org/packages/awsmug/torro-forms-plugin-boilerplate)
+[![License](https://poser.pugx.org/awsmug/torro-forms-plugin-boilerplate/license)](https://packagist.org/packages/awsmug/torro-forms-plugin-boilerplate)
+
 # Torro Forms Plugin Boilerplate
 
 This is a plugin boilerplate for a Torro Forms extension. It is highly encouraged to use this boilerplate when building any extension for Torro Forms.
