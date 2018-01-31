@@ -24,6 +24,9 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Registers the extension.
  *
+ * To retrieve the extension instance from the outside, third-party developers
+ * have to call `torro()->extensions()->get( 'torro_forms_plugin_boilerplate' )`.
+ *
  * @since 1.0.0
  *
  * @param Torro_Forms $torro Main plugin instance.

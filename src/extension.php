@@ -9,8 +9,22 @@
 namespace PluginVendor\TorroFormsPluginBoilerplate;
 
 use awsmug\Torro_Forms\Components\Extension as Extension_Base;
+use Leaves_And_Love\Plugin_Lib\Assets;
 
+/**
+ * Extension main class.
+ *
+ * @since 1.0.0
+ */
 class Extension extends Extension_Base {
+
+	/**
+	 * The assets manager instance.
+	 *
+	 * @since 1.0.0
+	 * @var Assets
+	 */
+	protected $assets;
 
 	/**
 	 * Checks whether the extension can run on this setup.
@@ -46,10 +60,20 @@ class Extension extends Extension_Base {
 	/**
 	 * Instantiates the extension services.
 	 *
+	 * Any service instances registered in here can be retrieved from the outside,
+	 * by calling a method with the same name of the property.
+	 *
 	 * @since 1.0.0
 	 */
 	protected function instantiate_services() {
-		// The following call is sample code to register this extension's template location.
+		// This is sample code and only needed if your extension includes assets.
+		$this->assets = new Assets( $this->prefix, array(
+			'path_callback'  => array( $this, 'path' ),
+			'url_callback'   => array( $this, 'url' ),
+			'plugin_version' => $this->version,
+		) );
+
+		// This is sample code to register this extension's template location.
 		// It can be removed if the extension does not include any templates.
 		$this->parent_plugin->template()->register_location( 'torro-forms-plugin-boilerplate', $this->path( 'templates/' ) );
 	}
