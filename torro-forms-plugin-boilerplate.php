@@ -7,7 +7,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Torro Forms Plugin Boilerplate
- * Plugin URI:  https://torro-forms-plugin-boilerplate.com
+ * Plugin URI:  https://plugin-website.com
  * Description: Plugin Boilerplate for Torro Forms.
  * Version:     1.0.0
  * Author:      Awesome UG
@@ -15,38 +15,50 @@
  * License:     GNU General Public License v2 (or later)
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: torro-forms-plugin-boilerplate
+ * Domain Path: /languages/
  * Tags:        extension, torro forms, forms, form builder, api
  */
 
 defined( 'ABSPATH' ) || exit;
 
-class Torro_Forms_Plugin_Boilerplate_Init {
-	public static function init() {
-		self::load_textdomain();
+/**
+ * Registers the extension.
+ *
+ * @since 1.0.0
+ *
+ * @param Torro_Forms $torro Main plugin instance.
+ * @return bool|WP_Error True on success, error object on failure.
+ */
+function torro_forms_plugin_boilerplate_load( $torro ) {
+	// Require main extension class file. All other classes will be autoloaded.
+	require_once dirname( __FILE__ ) . '/src/extension.php';
 
-		if ( ! function_exists( 'torro_load' ) ) {
-			add_action( 'admin_notices', array( __CLASS__, 'torro_not_active' ) );
-			return;
-		}
+	// Use a string here for the extension class name so that this file can be parsed by PHP 5.2.
+	$class_name = 'PluginVendor\TorroFormsPluginBoilerplate\Extension';
 
-		torro_load( array( __CLASS__, 'load_extension' ) );
+	// Store the main extension file.
+	$main_file = __FILE__;
+
+	// Determine the relative basedir (will be empty unless a must-use plugin).
+	$basedir_relative = '';
+	$file             = wp_normalize_path( $main_file );
+	$mu_plugin_dir    = wp_normalize_path( WPMU_PLUGIN_DIR );
+	if ( preg_match( '#^' . preg_quote( $mu_plugin_dir, '#' ) . '/#', $file ) && file_exists( $mu_plugin_dir . '/torro-forms-plugin-boilerplate.php' ) ) {
+		$basedir_relative = 'torro-forms-plugin-boilerplate/';
 	}
 
-	public static function load_extension() {
-		require_once plugin_dir_path( __FILE__ ) . 'core/extension.php';
+	$result = $torro->extensions()->register( 'torro_forms_plugin_boilerplate', $class_name, $main_file, $basedir_relative );
+
+	if ( is_wp_error( $result ) ) {
+		$method = get_class( $torro->extensions() ) . '::register()';
+		$torro->error_handler()->doing_it_wrong( $method, $result->get_error_message(), null );
 	}
 
-	public static function torro_not_active() {
-		?>
-		<div class="notice notice-warning">
-			<p><?php printf( __( 'Torro Forms is not activated. Please activate it in order to use the extension %s.', 'torro-forms-plugin-boilerplate' ), 'Torro Forms Plugin Boilerplate' ); ?></p>
-		</div>
-		<?php
-	}
-
-	private static function load_textdomain() {
-		return load_plugin_textdomain( 'torro-forms-plugin-boilerplate', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
-	}
+	return $result;
 }
 
-add_action( 'plugins_loaded', array( 'Torro_Forms_Plugin_Boilerplate_Init', 'init' ) );
+if ( function_exists( 'torro_load' ) ) {
+	torro_load( 'torro_forms_plugin_boilerplate_load' );
+} else {
+	add_action( 'torro_loaded', 'torro_forms_plugin_boilerplate_load', 10, 1 );
+}
