@@ -1,7 +1,7 @@
 === Torro Forms Plugin Boilerplate ===
 
 Plugin Name:       Torro Forms Plugin Boilerplate
-Plugin URI:        https://torro-forms.com
+Plugin URI:        https://plugin-website.com
 Author:            Awesome UG
 Author URI:        http://www.awesome.ug
 Contributors:      mahype, flixos90, awesome-ug
