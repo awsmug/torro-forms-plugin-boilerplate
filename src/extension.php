@@ -49,7 +49,22 @@ class Extension extends Extension_Base {
 	 * @since 1.0.0
 	 */
 	protected function instantiate_services() {
+		// The following call is sample code to register this extension's template location.
+		// It can be removed if the extension does not include any templates.
+		$this->parent_plugin->template()->register_location( 'torro-forms-plugin-boilerplate', $this->path( 'templates/' ) );
+	}
 
+	/**
+	 * Registers the 'date' element type part of the extension.
+	 *
+	 * This method is sample code and can be removed.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param \awsmug\Torro_Forms\DB_Objects\Elements\Element_Types $element_type_manager Element type manager.
+	 */
+	protected function register_date_element_type( $element_type_manager ) {
+		$element_type_manager->register( 'date', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Date' );
 	}
 
 	/**
@@ -60,7 +75,13 @@ class Extension extends Extension_Base {
 	 * @since 1.0.0
 	 */
 	protected function setup_hooks() {
-
+		// The following hook is sample code and can be removed.
+		$this->actions[] = array(
+			'name'     => 'torro_register_element_types',
+			'callback' => array( $this, 'register_date_element_type' ),
+			'priority' => 10,
+			'num_args' => 1,
+		);
 	}
 
 	/**
