@@ -45,11 +45,8 @@
     "wimg/php-compatibility": "^8"
   },
   "scripts":     {
-    "post-install-cmd": [
-      "[[ \"$COMPOSER_DEV_MODE\" == \"1\" ]] && vendor/bin/phpcs --config-set installed_paths ../../wimg/php-compatibility,../../wp-coding-standards/wpcs"
-    ],
-    "post-update-cmd": [
-      "[[ \"$COMPOSER_DEV_MODE\" == \"1\" ]] && vendor/bin/phpcs --config-set installed_paths ../../wimg/php-compatibility,../../wp-coding-standards/wpcs"
+    "config-phpcs": [
+      "vendor/bin/phpcs --config-set installed_paths ../../wimg/php-compatibility,../../wp-coding-standards/wpcs"
     ]
   }
 }
