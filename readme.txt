@@ -29,11 +29,7 @@ Plugin Boilerplate for Torro Forms.
 
 == Frequently Asked Questions ==
 
-**TODO:** DFAQ goes here.
-
-= How can I, as a developer, extend the plugin? =
-
-Torro Forms supports the concept of extensions and provides flexible APIs for several areas of it. A good point to start are our [API resources](http://torro-forms.com/api/). The plugin itself can also be found [on GitHub](https://github.com/awsmug/torro-forms-plugin-boilerplate) if you wanna have a look at the code in detail.
+**TODO:** FAQ goes here.
 
 = Where should I submit my support request? =
 
@@ -47,7 +43,7 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 
 == Screenshots ==
 
-**TODO:** DScreenshot go here as a list.
+**TODO:** Screenshots go here as a list.
 
 == Changelog ==
 

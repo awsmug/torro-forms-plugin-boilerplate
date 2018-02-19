@@ -122,7 +122,8 @@ class Date extends Element_Type {
 		$max_year = ! empty( $settings['max_year'] ) ? (int) $settings['max_year'] : (int) current_time( 'Y' );
 
 		if ( $year < $min_year || $year > $max_year ) {
-			return $this->create_error( 'year_out_of_boundaries', __( 'The value for the year must be between %1$s and %2$s.', 'torro-forms-plugin-boilerplate' ), $parsed_value );
+			/* translators: 1: minimum year, 2: maximum year */
+			return $this->create_error( 'year_out_of_boundaries', sprintf( __( 'The value for the year must be between %1$s and %2$s.', 'torro-forms-plugin-boilerplate' ), $min_year, $max_year ), $parsed_value );
 		}
 
 		return $parsed_value;
