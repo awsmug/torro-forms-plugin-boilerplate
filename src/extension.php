@@ -92,6 +92,33 @@ class Extension extends Extension_Base {
 	}
 
 	/**
+	 * Registers the extension stylesheet.
+	 *
+	 * @since 1.0.0
+	 */
+	protected function register_stylesheet() {
+		$this->assets->register_style( 'frontend', 'assets/dist/css/frontend.css', array(
+			'deps' => array( 'torro-frontend' ),
+			'ver'  => $this->version,
+		) );
+	}
+
+	/**
+	 * Enqueues the extension stylesheet if not prevented by setting.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param bool $load_css Whether CSS assets should not be enqueued.
+	 */
+	protected function enqueue_stylesheet( $load_css ) {
+		if ( ! $load_css ) {
+			return;
+		}
+
+		$this->assets->enqueue_style( 'frontend' );
+	}
+
+	/**
 	 * Sets up all action and filter hooks for the service.
 	 *
 	 * This method must be implemented and then be called from the constructor.
@@ -99,10 +126,22 @@ class Extension extends Extension_Base {
 	 * @since 1.0.0
 	 */
 	protected function setup_hooks() {
-		// The following hook is sample code and can be removed.
+		// The following hooks are sample code and can be removed.
 		$this->actions[] = array(
 			'name'     => 'torro_register_element_types',
 			'callback' => array( $this, 'register_date_element_type' ),
+			'priority' => 10,
+			'num_args' => 1,
+		);
+		$this->actions[] = array(
+			'name'     => 'torro_register_assets',
+			'callback' => array( $this, 'register_stylesheet' ),
+			'priority' => 10,
+			'num_args' => 0,
+		);
+		$this->actions[] = array(
+			'name'     => 'torro_enqueue_form_frontend_assets',
+			'callback' => array( $this, 'enqueue_stylesheet' ),
 			'priority' => 10,
 			'num_args' => 1,
 		);
