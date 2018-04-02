@@ -67,7 +67,7 @@ class Extension extends Extension_Base {
 	 */
 	protected function instantiate_services() {
 		// This is sample code and only needed if your extension includes assets.
-		$this->assets = new Assets( $this->prefix, array(
+		$this->assets = new Assets( 'torro_pb_', array(
 			'path_callback'  => array( $this, 'path' ),
 			'url_callback'   => array( $this, 'url' ),
 			'plugin_version' => $this->version,
