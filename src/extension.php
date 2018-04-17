@@ -88,15 +88,33 @@ class Extension extends Extension_Base {
 	 * @param \awsmug\Torro_Forms\DB_Objects\Elements\Element_Types $element_type_manager Element type manager.
 	 */
 	protected function register_date_element_type( $element_type_manager ) {
+		$element_type_manager->register( 'autocomplete', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Autocomplete' );
 		$element_type_manager->register( 'date', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Date' );
 	}
 
 	/**
-	 * Registers the extension stylesheet.
+	 * Registers the extension assets.
+	 *
+	 * This method is sample code and can be removed.
 	 *
 	 * @since 1.0.0
 	 */
-	protected function register_stylesheet() {
+	protected function register_assets() {
+		$this->assets->register_script( 'autocomplete-element', 'assets/dist/js/autocomplete-element.js', array(
+			'deps'          => array( 'jquery', 'jquery-ui-autocomplete' ),
+			'ver'           => $this->version,
+			'in_footer'     => true,
+			'localize_name' => 'torroPluginBoilerplateAutocompleteData',
+			'localize_data' => array(
+				'restUrl'   => rest_url( '/' ),
+				'restNonce' => wp_create_nonce( 'wp_rest' ),
+			),
+		) );
+
+		$this->assets->register_style( 'autocomplete-element', 'assets/dist/css/autocomplete-element.css', array(
+			'deps' => array( 'torro-frontend' ),
+			'ver'  => $this->version,
+		) );
 		$this->assets->register_style( 'date-element', 'assets/dist/css/date-element.css', array(
 			'deps' => array( 'torro-frontend' ),
 			'ver'  => $this->version,
@@ -104,18 +122,23 @@ class Extension extends Extension_Base {
 	}
 
 	/**
-	 * Enqueues the extension stylesheet if not prevented by setting.
+	 * Enqueues the frontend assets.
+	 *
+	 * CSS is only enqueued if not prevented by the respective setting.
+	 *
+	 * This method is sample code and can be removed.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param bool $load_css Whether CSS assets should not be enqueued.
 	 */
-	protected function enqueue_stylesheet( $load_css ) {
-		if ( ! $load_css ) {
-			return;
-		}
+	protected function enqueue_frontend_assets( $load_css ) {
+		$this->assets->enqueue_script( 'autocomplete-element' );
 
-		$this->assets->enqueue_style( 'date-element' );
+		if ( $load_css ) {
+			$this->assets->enqueue_style( 'autocomplete-element' );
+			$this->assets->enqueue_style( 'date-element' );
+		}
 	}
 
 	/**
@@ -135,13 +158,13 @@ class Extension extends Extension_Base {
 		);
 		$this->actions[] = array(
 			'name'     => 'torro_register_assets',
-			'callback' => array( $this, 'register_stylesheet' ),
+			'callback' => array( $this, 'register_assets' ),
 			'priority' => 10,
 			'num_args' => 0,
 		);
 		$this->actions[] = array(
 			'name'     => 'torro_enqueue_form_frontend_assets',
-			'callback' => array( $this, 'enqueue_stylesheet' ),
+			'callback' => array( $this, 'enqueue_frontend_assets' ),
 			'priority' => 10,
 			'num_args' => 1,
 		);

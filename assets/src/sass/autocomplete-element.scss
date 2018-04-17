@@ -1,0 +1,11 @@
+.ui-autocomplete.ui-menu {
+	padding-left: 0;
+	list-style: none;
+	max-width: 32em;
+	background-color: #fff;
+	border: 1px solid #ccc;
+
+	> .ui-menu-item {
+		padding: 2px 5px;
+	}
+}
