@@ -97,7 +97,7 @@ class Extension extends Extension_Base {
 	 * @since 1.0.0
 	 */
 	protected function register_stylesheet() {
-		$this->assets->register_style( 'frontend', 'assets/dist/css/frontend.css', array(
+		$this->assets->register_style( 'date-element', 'assets/dist/css/date-element.css', array(
 			'deps' => array( 'torro-frontend' ),
 			'ver'  => $this->version,
 		) );
