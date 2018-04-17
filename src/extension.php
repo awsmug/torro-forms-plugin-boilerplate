@@ -115,7 +115,7 @@ class Extension extends Extension_Base {
 			return;
 		}
 
-		$this->assets->enqueue_style( 'frontend' );
+		$this->assets->enqueue_style( 'date-element' );
 	}
 
 	/**
