@@ -8,8 +8,14 @@
 
 namespace PluginVendor\TorroFormsPluginBoilerplate;
 
+use PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Date;
+use PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Autocomplete;
+use PluginVendor\TorroFormsPluginBoilerplate\Actions\Frontend_Posting;
 use awsmug\Torro_Forms\Components\Extension as Extension_Base;
+use awsmug\Torro_Forms\DB_Objects\Elements\Element_Types;
+use awsmug\Torro_Forms\Modules\Actions\Module as Actions_Module;
 use Leaves_And_Love\Plugin_Lib\Assets;
+use WP_Error;
 
 /**
  * Extension main class.
@@ -79,17 +85,30 @@ class Extension extends Extension_Base {
 	}
 
 	/**
-	 * Registers the 'date' element type part of the extension.
+	 * Registers the 'date' and 'autocomplete' element types part of the extension.
 	 *
 	 * This method is sample code and can be removed.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param \awsmug\Torro_Forms\DB_Objects\Elements\Element_Types $element_type_manager Element type manager.
+	 * @param Element_Types $element_type_manager Element type manager.
 	 */
 	protected function register_date_and_autocomplete_element_types( $element_type_manager ) {
-		$element_type_manager->register( 'autocomplete', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Autocomplete' );
-		$element_type_manager->register( 'date', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Date' );
+		$element_type_manager->register( 'date', Date::class );
+		$element_type_manager->register( 'autocomplete', Autocomplete::class );
+	}
+
+	/**
+	 * Registers the WordPress frontend posting action using the REST API as part of the extension.
+	 *
+	 * This method is sample code and can be removed.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param Actions_Module $module Actions module instance.
+	 */
+	protected function register_frontend_posting_action( $module ) {
+		$module->register( 'frontend_posting', Frontend_Posting::class );
 	}
 
 	/**
@@ -111,11 +130,11 @@ class Extension extends Extension_Base {
 			),
 		) );
 
-		$this->assets->register_style( 'autocomplete-element', 'assets/dist/css/autocomplete-element.css', array(
+		$this->assets->register_style( 'date-element', 'assets/dist/css/date-element.css', array(
 			'deps' => array( 'torro-frontend' ),
 			'ver'  => $this->version,
 		) );
-		$this->assets->register_style( 'date-element', 'assets/dist/css/date-element.css', array(
+		$this->assets->register_style( 'autocomplete-element', 'assets/dist/css/autocomplete-element.css', array(
 			'deps' => array( 'torro-frontend' ),
 			'ver'  => $this->version,
 		) );
@@ -130,7 +149,7 @@ class Extension extends Extension_Base {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param bool $load_css Whether CSS assets should not be enqueued.
+	 * @param bool $load_css Whether CSS assets should be enqueued.
 	 */
 	protected function enqueue_frontend_assets( $load_css ) {
 		$this->assets->enqueue_script( 'autocomplete-element' );
@@ -153,6 +172,12 @@ class Extension extends Extension_Base {
 		$this->actions[] = array(
 			'name'     => 'torro_register_element_types',
 			'callback' => array( $this, 'register_date_and_autocomplete_element_types' ),
+			'priority' => 10,
+			'num_args' => 1,
+		);
+		$this->actions[] = array(
+			'name'     => 'torro_register_actions',
+			'callback' => array( $this, 'register_frontend_posting_action' ),
 			'priority' => 10,
 			'num_args' => 1,
 		);
@@ -182,6 +207,6 @@ class Extension extends Extension_Base {
 	 * @return bool True if the dependencies are loaded, false otherwise.
 	 */
 	protected function dependencies_loaded() {
-		return true;
+		return class_exists( 'APIAPI\Structure_WordPress\Structure_WordPress' );
 	}
 }
