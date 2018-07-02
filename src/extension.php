@@ -87,7 +87,7 @@ class Extension extends Extension_Base {
 	 *
 	 * @param \awsmug\Torro_Forms\DB_Objects\Elements\Element_Types $element_type_manager Element type manager.
 	 */
-	protected function register_date_element_type( $element_type_manager ) {
+	protected function register_date_and_autocomplete_element_types( $element_type_manager ) {
 		$element_type_manager->register( 'autocomplete', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Autocomplete' );
 		$element_type_manager->register( 'date', 'PluginVendor\TorroFormsPluginBoilerplate\Element_Types\Date' );
 	}
@@ -152,7 +152,7 @@ class Extension extends Extension_Base {
 		// The following hooks are sample code and can be removed.
 		$this->actions[] = array(
 			'name'     => 'torro_register_element_types',
-			'callback' => array( $this, 'register_date_element_type' ),
+			'callback' => array( $this, 'register_date_and_autocomplete_element_types' ),
 			'priority' => 10,
 			'num_args' => 1,
 		);
