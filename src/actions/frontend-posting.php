@@ -58,7 +58,9 @@ class Frontend_Posting extends API_Action {
 
 			$rest_base = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;
 
-			$routes[ 'POST:/wp/v2/' . $rest_base ] = $post_type->labels->add_new_item;
+			$routes[ 'POST:/wp/v2/' . $rest_base ] = array(
+				'title' => $post_type->labels->add_new_item,
+			);
 		}
 
 		return array(
