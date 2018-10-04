@@ -8,7 +8,7 @@
 
 namespace PluginVendor\TorroFormsPluginBoilerplate\Actions;
 
-use awsmug\Torro_Forms\Modules\Actions\API_Action;
+use awsmug\Torro_Forms\Modules\Actions\API_Action\API_Action;
 use awsmug\Torro_Forms\DB_Objects\Forms\Form;
 use awsmug\Torro_Forms\DB_Objects\Submissions\Submission;
 use WP_Error;
