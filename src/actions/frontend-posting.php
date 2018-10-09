@@ -45,7 +45,12 @@ class Frontend_Posting extends API_Action {
 	 * @since 1.1.0
 	 *
 	 * @return array Associative array of $structure_slug => $data pairs. $data must be an associative array with keys
-	 *               'title' and 'routes'. 'routes' must be an associative array of $route_slug => $route_title pairs.
+	 *               'title', 'authentication_data' and 'routes'. 'authentication_data' must be an associative array of
+	 *               $field_slug => $field_data pairs where details are specified for the respective authentication field.
+	 *               Possible keys are 'value', and 'default'. 'routes' must be an associative array of
+	 *               $route_slug => $route_data pairs. $route_data must be an associative array with keys 'title' and 'fields'.
+	 *               'fields' must be an associative array of $field_slug => $field_data pairs where details are specified for
+	 *               each route field that requires special handling. Possible keys are 'value', and 'default'.
 	 */
 	protected function get_available_structures_and_routes() {
 		$routes = array();
@@ -63,10 +68,23 @@ class Frontend_Posting extends API_Action {
 			);
 		}
 
+		/*
+		Normally, the user would need to provide a token, but since we are on the same site as the API, we can automatically
+		generate that value on the fly.
+		 */
+		$authentication_data = array(
+			'token' => array(
+				'value' => function() {
+					return wp_create_nonce( 'wp_rest' );
+				},
+			),
+		);
+
 		return array(
 			self::STRUCTURE_SLUG => array(
-				'title'  => __( 'Local REST API', 'torro-forms-plugin-boilerplate' ),
-				'routes' => $routes,
+				'title'               => __( 'Local REST API', 'torro-forms-plugin-boilerplate' ),
+				'authentication_data' => $authentication_data,
+				'routes'              => $routes,
 			),
 		);
 	}
