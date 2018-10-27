@@ -40,6 +40,30 @@ class Frontend_Posting extends API_Action {
 	}
 
 	/**
+	 * Processes the response after it has been received.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param Route_Response $response   Response object.
+	 * @param Connection     $connection API connection instance with structure and authentication details.
+	 * @param string         $route_slug API-API route identifier.
+	 * @param Submission     $submission Submission to handle by the action.
+	 * @param Form           $form       Form the submission applies to.
+	 * @return Route_Response|WP_Error Processed response object, or error object.
+	 */
+	protected function process_response( $response, $connection, $route_slug, $submission, $form ) {
+		// Detect WordPress REST API errors in the response and act accordingly.
+		if ( $response->get_response_code() >= 400 ) {
+			$params = $response->get_params();
+			if ( isset( $params['code'] ) && isset( $params['message'] ) ) {
+				return new WP_Error( 'apiapi_' . $connection->get_structure() . '_' . $params['code'], $params['message'] );
+			}
+		}
+
+		return $response;
+	}
+
+	/**
 	 * Gets the available API structures and their routes.
 	 *
 	 * @since 1.1.0
