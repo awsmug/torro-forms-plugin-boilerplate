@@ -22,10 +22,10 @@ const config = {
 	license: 'GNU General Public License v2 (or later)',
 	licenseURI: 'http://www.gnu.org/licenses/gpl-2.0.html',
 	tags: parseKeywords( pkg.keywords ).join( ', ' ),
-	contributors: [ 'mahype', 'flixos90', 'awesome-ug' ].join( ', ' ),
+	contributors: [ 'mahype', 'awesome-ug' ].join( ', ' ),
 	donateLink: false,
 	minRequired: '4.8',
-	testedUpTo: '4.9',
+	testedUpTo: '5.2',
 	requiresPHP: '5.6',
 	translateURI: 'https://translate.wordpress.org/projects/wp-plugins/torro-forms',
 	network: false
